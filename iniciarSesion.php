@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+	<link rel="stylesheet" type="text/css" href="centroAdopcion.css">
 	<title> Iniciar sesion </title>
 </head>
 <body>

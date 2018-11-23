@@ -46,6 +46,16 @@ input[type=date] {
 	text-align: center;
 }
 
+input[type=password] {
+    font-family: Arial;
+	background:rgba(0,0,0,0);
+    border: none;
+	font-size: 20px;
+    font-family: Arial;
+    color: black;
+	text-align: center;
+}
+
 input[type=submit] {
 	padding:8px;
 	display:block;
@@ -66,4 +76,14 @@ th.error {
 	font-size: 20px;
     background-color: white;
     color: black;
+}
+
+a:link {
+    color: #8db7c2;
+	text-decoration: none;
+}
+
+a:visited {
+    color: #8db7c2;
+	text-decoration: none;
 }

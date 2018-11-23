@@ -28,7 +28,7 @@
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
 
-		header("Location: /pruebas.php");
+		header("Location: /index.php");
 	}
 	else header("Location: /sesionRechazada.php");
 /*

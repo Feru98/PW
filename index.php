@@ -7,11 +7,6 @@ echo <<<_END
 	<title> Centro de adopcion </title>
 </head>
 <body>
-	<table align="right">
-	<tr>
-		<td><a href="./iniciarSesion.php">Iniciar sesion</a></td>
-	</tr>
-	</table>
 _END;
 	require_once('queryFunctionsLibrary.php');
 
@@ -27,9 +22,22 @@ _END;
 
 		if($now > $_SESSION['expire']){
 			session_destroy();
-			echo "Time out";
+echo <<<_END
+			<table class="error" align="center">
+				<tr>
+					<th class="error"><a href="./index.php">Su sesión ha experado, vuelva a introducir sus datos</a></th>
+				</tr>
+			</table>
+_END;
 			exit;
 		}
+
+		$usuario = $q->getUsuario($user);
+
+		if(empty($usuario[0])){
+			header("Location: /sesionRechazada.php?usuarioMal");
+		}
+		else{
 echo <<<_END
 		<center>
 			<img src="./Dog_Category_Header_Image.png" width="45%"/>
@@ -74,9 +82,33 @@ echo <<<_END
 		</tr>
 		</table>
 _END;
-
+		}
 	}else{
 echo <<<_END
+		<form method="POST" action="login.php" align="right">
+			<table align="right">
+				<tr>
+					<th>Usuario</th>
+					<td><input type="text" name="usuario" required><br></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="contrasena" required><br></td>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			<table align="right">
+				<tr>
+					<td><input type="submit" value="Iniciar sesion"><td>
+				</tr>
+			</table>
+		</form>
+		<br>
+		<br>
+		<br>
 		<center>
 			<img src="./Dog_Category_Header_Image.png" width="45%"/>
 		</center>
