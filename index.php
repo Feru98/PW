@@ -25,20 +25,29 @@ _END;
 echo <<<_END
 			<table class="error" align="center">
 				<tr>
-					<th class="error"><a href="./index.php">Su sesión ha experado, vuelva a introducir sus datos</a></th>
+					<th class="error"><a href="./index.php">Su sesión ha expirado, vuelva a introducir sus datos</a></th>
 				</tr>
 			</table>
 _END;
 			exit;
 		}
 
-		$usuario = $q->getUsuario($user);
+		$usuario = $q->getUsuario($_SESSION['name']);
 
-		if(empty($usuario[0])){
-			header("Location: /sesionRechazada.php?usuarioMal");
-		}
-		else{
+		if(strcmp($usuario[0][Admin], '1') == 0){
 echo <<<_END
+		<table align="right">
+			<tr>
+				<th>Usuario</th>
+			</tr>
+			<tr>
+				<td>$_SESSION[name]</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
 		<center>
 			<img src="./Dog_Category_Header_Image.png" width="45%"/>
 		</center>
@@ -82,6 +91,52 @@ echo <<<_END
 		</tr>
 		</table>
 _END;
+		}
+		else{
+echo <<<_END
+		<table align="right">
+			<tr>
+				<th>Usuario</th>
+			</tr>
+			<tr>
+				<td>$_SESSION[name]</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center>
+			<img src="./Dog_Category_Header_Image.png" width="45%"/>
+		</center>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<table align="center">
+		<tr>
+		  <th>Nuestros cuidadores:</th>
+		  <th></th>
+		  <th></th>
+		</tr>
+		<tr>
+		  <th>DNI</th>
+		  <th>Nombre</th>
+		  <th></th>
+		</tr>
+_END;
+			$empleados = $q->getEmpleados();
+			foreach($empleados as $empleado){
+echo <<<_END
+		<tr>
+		  <td>$empleado[DNI]</td>
+		  <td>$empleado[Nombre]</td>
+		  <td><a href="./empleado.php?dni=$empleado[DNI]"><img src="cursor(1).png" width="10%"/></a></td>
+		</tr>
+_END;
+			}
+			echo "</table>";
 		}
 	}else{
 echo <<<_END
