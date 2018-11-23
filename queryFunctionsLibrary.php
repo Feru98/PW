@@ -1,6 +1,5 @@
 <?php
 class ConsultasEmpresa {
-/*
 	public $usuario = 'root';
 
 	public $pass = '';
@@ -17,28 +16,6 @@ class ConsultasEmpresa {
 
 		try {
 			$dbc = new PDO('mysql:host=localhost; dbname=empleados', $this->usuario, $this->pass, array(PDO::ATTR_PERSISTENT => true));
-		} catch (PDOException $e) {
-			return null;
-		}
-
-		return $dbc;
-	}
-*/
-	public $usuario = 'i62esgot';
-
-	public $pass = '1234';
-
-	public $dbc;
-
-	public function __construct(){
-		$this->dbc = $this->dbconnect();
-	}
-
-	public function dbconnect(){
-		$dbc = null;
-
-		try {
-			$dbc = new PDO('mysql:host=oraclepr.uco.es; dbname=i62esgot', $this->usuario, $this->pass, array(PDO::ATTR_PERSISTENT => true));
 		} catch (PDOException $e) {
 			return null;
 		}
