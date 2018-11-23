@@ -1,0 +1,69 @@
+body {
+    background-image: url("110aee34a7559a4daae5d12a3af618e6--hand-painted-textures-d-texture.jpg");
+}
+
+table {
+    font-family: Arial;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th {
+	font-size: 30px;
+    background-color: #65D0EE;
+    color: white;
+}
+
+tr:nth-child(even) {
+	font-size: 20px;
+	background-color: #8db7c2;
+    color: white;
+}
+
+tr:nth-child(odd) {
+	font-size: 20px;
+	background-color: white;
+    color: #8db7c2;
+}
+
+input[type=text] {
+    font-family: Arial;
+	background:rgba(0,0,0,0);
+    border: none;
+	font-size: 20px;
+    font-family: Arial;
+    color: black;
+	text-align: center;
+}
+
+input[type=date] {
+    font-family: Arial;
+	background:rgba(0,0,0,0);
+    border: none;
+	font-size: 20px;
+    font-family: Arial;
+    color: black;
+	text-align: center;
+}
+
+input[type=submit] {
+	padding:8px;
+	display:block;
+	border:none;
+	width:100%
+	font-size: 40px;
+    font-family: Arial;
+    color: black;
+}
+
+table.error {
+    background-color: white;
+	border: 3px solid red;
+	align-self: center;
+}
+
+th.error {
+	font-size: 20px;
+    background-color: white;
+    color: black;
+}
