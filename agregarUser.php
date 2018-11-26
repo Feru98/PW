@@ -10,13 +10,21 @@
 
 	$nombre=$_POST["nombre"];
 
-	$empleado = $q->getEmpleado($dni);
+	$empleado = $q->getUsuario($nombre);
 
 	$contrasena=$_POST["contrasena"];
-	$admin=$_POST["admin"];
+	$contrasena2=$_POST["contrasena2"];
+	$admin="0";
+
+	if($contrasena != $contrasena2)
+	{
+		header("Location: /index.php"); /// a otro sitio que diga que no ha introducido bien ambas con
+	}
+
+	$token = hash('ripemd128', $contrasena);
 
 	if(empty($empleado)){
-		$q->agregarUsuario( $nombre , $contrasena, $admin);
+		$q->agregarUsuario( $nombre , $token , $admin);
 		header("Location: /index.php");
 	}
 	else{
