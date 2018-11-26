@@ -108,6 +108,16 @@ class ConsultasEmpresa {
 		}
 	}
 
+	public function agregarUsuario( $nombre , $contrasena , $admin ){
+		
+		try {
+			$sentence = $this->dbc->prepare("INSERT INTO Usuarios (Nombre, Contrasena, Admin) VALUES ('$nombre','$contrasena','$admin')");
+			$sentence->execute();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 
 	public function modificarEmpleado($dni , $nombre , $direccion, $nacimiento , $sexo, $mediajornada , $tarde , $noche , $sueldo, $imagen){
 		

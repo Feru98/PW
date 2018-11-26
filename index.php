@@ -34,7 +34,7 @@ _END;
 
 		$usuario = $q->getUsuario($_SESSION['name']);
 
-		if(strcmp($usuario[0][Admin], '1') == 0){
+		if(strcmp($usuario[0]['Admin'], '1') == 0){
 echo <<<_END
 		<table align="right">
 			<tr>
@@ -161,6 +161,11 @@ echo <<<_END
 				</tr>
 			</table>
 		</form>
+		<table align="right">
+				<tr>
+					<td><a href="./agregarUserFormulario.php"> Crear Usuario </a></td>
+				</tr>
+		</table>
 		<br>
 		<br>
 		<br>
@@ -196,11 +201,6 @@ echo <<<_END
 _END;
 		exit;
 	}
-?>
-</body>
-</html>
-
-
 ?>
 </body>
 </html>
