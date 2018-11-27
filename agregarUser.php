@@ -16,10 +16,10 @@
 	$contrasena2=$_POST["contrasena2"];
 	$admin="0";
 
-	if($contrasena != $contrasena2)
+	if(strcmp($contrasena, $contrasena2) == 0)
 	{
-		header("Location: /index.php"); /// a otro sitio que diga que no ha introducido bien ambas con
-	}
+		
+	
 
 	$token = hash('ripemd128', $contrasena);
 
@@ -29,5 +29,11 @@
 	}
 	else{
 		header("Location: /agregarUsuarioFormulario.php?dniRepetido=repetido&nombre=$nombre&direccion=$direccion&nacimiento=$nacimiento");
+	}
+
+	}
+	else
+	{
+		header("Location: /contrasenasMal.php"); /// a otro sitio que diga que no ha introducido bien ambas con
 	}
 ?>
